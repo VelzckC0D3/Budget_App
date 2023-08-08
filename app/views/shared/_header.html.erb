@@ -1,0 +1,21 @@
+<div class="shared-header-cont">
+  <nav class="shared-header-nav">
+    <% if user_signed_in? %>
+      <ul class="shared-header-ul">
+        <li class="shared-header-li"><%= link_to current_user.name, edit_user_registration_path(current_user.id), class:"navbar-title" %> </li>
+        <li class="shared-header-li"><%= button_to "Sign out", destroy_user_session_path, :method => :get, class: "btn" %> </li>
+      </ul>
+    <% else  %>
+      <ul class="shared-header-ul">
+        <li class="shared-header-li"> <%= link_to "Sign in", new_user_session_path, class: "btn" %>  </li>
+        <li class="shared-header-li"> <%= link_to "Sign up", new_user_registration_path, class: "btn" %> </li>
+      </ul>
+    </nav>
+  <% end %>
+</div>
+  <% if alert.present? || notice.present? %>
+    <div class="alerts">
+      <p class="alerts-text"><%= notice %></p>
+      <p class="alerts-text"><%= alert %></p>
+    </div>
+  <% end %>

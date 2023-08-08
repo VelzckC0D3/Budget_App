@@ -13,3 +13,132 @@
  *= require_tree .
  *= require_self
  */
+
+/* --------- Root --------- */
+
+:root {
+  --main-color: #3778c2;
+  --main-color-hover: #2b8eff;
+  --secondary-color: #5fb523;
+  --secondary-color-hover: #69d21d;
+  --tertiary-color: #434b54;
+  --tertiary-color-hover: #2c3136;
+}
+
+/* --------- Rooth --------- */
+
+/* --------- Normalize --------- */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: proxima-nova, sans-serif;
+  text-decoration: none;
+}
+
+body {
+  overflow: hidden;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient( 180deg, #003169 0%, rgb(33 64 149) 83% );
+}
+
+/* --------- Normalize --------- */
+
+/* --------- KeyFrames --------- */
+
+@keyframes bouncing {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+
+/* --------- KeyFrames --------- */
+
+/* --------- Header --------- */
+
+.shared-header-cont {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  top: 0;
+  z-index: 3;
+  background: linear-gradient(
+    0deg,
+    rgb(0, 0, 0) 0%,
+    rgb(41, 88, 146) 83%
+  );
+}
+
+.shared-header-nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 80vw;
+}
+
+.shared-header-ul {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 1rem;
+  list-style: none;
+  padding: 1rem;
+  justify-content: flex-end;
+}
+
+.shared-header-li a {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.alerts {
+  position: absolute;
+  top: 4rem;
+}
+
+/* --------- Header --------- */
+
+/* --------- Wrapper --------- */
+
+.wrapper {
+  padding: 1rem;
+  height: 100%;
+  width: 100%;
+  max-width: 100vw;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --------- Wrapper --------- */
+
+/* --------- Footer --------- */
+
+.shared-footer-cont {
+  background-color: black;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shared-footer-cont p {
+  color: white;
+  text-align: center;
+}
+/* --------- Footer --------- */

@@ -17,8 +17,8 @@ class MovementController < ApplicationController
     end
 
     def index
-      @movements = Movement.where(user_id: params[:user_id], group_id: params[:group_id])
-      @group = Group.find(params[:group_id])
+      @movements = Movement.includes(:groups).where(user_id: params[:user_id], group_id: params[:group_id])
+      @group = Group.includes(:movements).find(params[:group_id])
       @total = @group.movements.sum(:amount)
     end
     
