@@ -5,25 +5,27 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
- <% if user_signed_in? %>
-        <%= link_to current_user.id, edit_user_registration_path(current_user.id), class:"navbar-title" %>
-        <div class="layouts-application-config">
-  
-          <%= button_to "Sign out", destroy_user_session_path, :method => :get, class: "btn" %>
-        </div>
-      <% else  %>
-
-        <div class="layouts-application-config">
-          <%= link_to "Sign in", new_user_session_path, class: "btn" %>
-          <%= link_to "Sign up", new_user_registration_path, class: "btn" %>
-        </div>
-      <% end %>
+    <% if alert.present? || notice.present? %>
+      <div class="alerts">
+        <%= notice %>
+        <%= alert %>
+      </div>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to current_user.name, edit_user_registration_path(current_user.id), class:"navbar-title" %>
+      <div class="layouts-application-config">
+        <%= button_to "Sign out", destroy_user_session_path, :method => :get, class: "btn" %>
+      </div>
+    <% else  %>
+      <div class="layouts-application-config">
+        <%= link_to "Sign in", new_user_session_path, class: "btn" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn" %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

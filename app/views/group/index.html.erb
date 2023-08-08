@@ -1,3 +1,10 @@
-<h1> Test </h1>
+<h1> Test Group Index </h1>
+<div class="testing">
+  <% @groups.each do |g| %>
+    <div><%= g.name %>
+      <div>
+      <% end %>
+    </div>
 
-<%= @groups.map {|g| g.name} %>
+    <div>
+      <%= link_to "New Group", new_user_group_path(current_user.id), class: "btn" %>

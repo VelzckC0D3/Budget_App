@@ -1,0 +1,13 @@
+<h1> Test Group New </h1>
+
+<%= form_with(model: [current_user, Group.new], url: user_group_index_path, local: true) do |f| %>
+<div class="field">
+<%= f.text_field :name, placeholder: "Group name" %>
+</div>
+<div class="field">
+<%= f.text_field :icon, placeholder: "Group icon" %>
+</div>
+<%= f.submit %>
+<% end %>
+
+<%= button_to 'back', user_group_index_path(current_user.id), data: {turbo: false}, method: :get %>
