@@ -7,7 +7,7 @@ class MovementController < ApplicationController
   def create
     @group = Group.find(params[:group_id])
     @movement = @group.movements.build(movement_params)
-    @movement.user = @group.user # Associate the user with the movement
+    @movement.user = @group.user
 
     if @movement.save
       redirect_to user_group_index_path(@group.user_id), notice: 'Movement was successfully added.'
@@ -21,7 +21,7 @@ class MovementController < ApplicationController
     @group = Group.includes(:movements).find(params[:group_id])
     @total = @group.movements.sum(:amount)
   end
-  
+
   private
 
   def movement_params
