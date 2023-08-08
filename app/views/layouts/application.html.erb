@@ -11,6 +11,19 @@
   </head>
 
   <body>
+ <% if user_signed_in? %>
+        <%= link_to current_user.id, edit_user_registration_path(current_user.id), class:"navbar-title" %>
+        <div class="layouts-application-config">
+  
+          <%= button_to "Sign out", destroy_user_session_path, :method => :get, class: "btn" %>
+        </div>
+      <% else  %>
+
+        <div class="layouts-application-config">
+          <%= link_to "Sign in", new_user_session_path, class: "btn" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn" %>
+        </div>
+      <% end %>
     <%= yield %>
   </body>
 </html>
