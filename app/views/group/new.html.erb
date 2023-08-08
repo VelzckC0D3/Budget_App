@@ -1,0 +1,20 @@
+<%= form_with(model: @group, url: user_group_index_path(current_user), local: true, data:{turbo: false}) do |form| %>
+  <!-- Form fields here -->
+  <%= form.text_field :name %>
+  <%= form.text_field :icon %>
+  
+  <!-- Display validation errors -->
+<% if @group.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+    <ul>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  
+  <%= form.submit "Create Group" %>
+<% end %>

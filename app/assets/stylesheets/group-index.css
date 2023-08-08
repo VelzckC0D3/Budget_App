@@ -1,0 +1,122 @@
+@keyframes fadeInTop {
+  0% {
+    transform: translateY(-100%) scaleY(2);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.group-index-cont {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  box-shadow: 1px 20px 20px 1px rgba(0, 0, 0, 0.2);
+  background-repeat: no-repeat;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  transition: all 0.15s ease-in-out;
+}
+
+.group-index-title {
+  font-family: "Borel", cursive;
+  color: black;
+  font-size: 3rem;
+  opacity: 0;
+  animation: fadeIn 0.4s ease-in-out 0.5s forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: -1rem;
+}
+
+.group-index-sub {
+  transform: translateY(-2rem);
+  animation: fadeIn 0.4s ease-in-out 0.7s forwards;
+  opacity: 0;
+  font-weight: 400;
+  color: grey;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.group-index-actions {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transform: translateY(-1rem);
+}
+
+.btn-cont {
+  width: 13rem;
+  height: 3rem;
+  transition: all 0.15s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-cont:nth-child(1) {
+  opacity: 0;
+  animation: 0.4s fadeIn 1s ease-in-out forwards;
+}
+
+.btn-cont:nth-child(2) {
+  opacity: 0;
+  animation: 0.4s fadeIn 1.3s ease-in-out forwards;
+}
+
+.group-index-button {
+  border-radius: 25px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.15s ease-in-out;
+  width: 10rem;
+}
+
+.btn1 {
+  background-color: var(--secondary-color);
+}
+
+.btn2 {
+  background-color: var(--main-color);
+}
+
+.btn1:hover {
+  background-color: var(--secondary-color-hover);
+  transform: scale(1.1);
+  box-shadow: 1px 8px 12px 0 rgba(0, 0, 0, 0.5);
+}
+
+.btn2:hover {
+  background-color: var(--main-color-hover);
+  transform: scale(1.1);
+  box-shadow: 1px 8px 12px 0 rgba(0, 0, 0, 0.5);
+}
+
+.group-index-button:active {
+  filter: brightness(1.2);
+  transform: scale(1.03);
+  transition: transform 0.1s ease-in-out;
+}

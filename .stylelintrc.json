@@ -26,7 +26,11 @@
         ]
       }
     ],
-    "csstree/validator": true
+    "csstree/validator": {
+      "directives": {
+        "unit-no-unknown": [true, { "ignoreUnits": ["dvh"] }]
+      }
+    }
   },
   "ignoreFiles": ["build/**", "dist/**", "**/reset*.css", "**/bootstrap*.css"]
 }

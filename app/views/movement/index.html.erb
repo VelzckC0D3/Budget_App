@@ -1,0 +1,9 @@
+<h1> testing index <h1>
+
+<% @movements.map do |movement| %>
+<%= movement.id %></br>
+<%= movement.user.name %></br>
+<%= movement.name %></br>
+<%= movement.amount %></br>
+<% end %>
+<%= @total %>

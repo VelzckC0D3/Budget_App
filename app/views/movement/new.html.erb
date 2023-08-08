@@ -1,0 +1,24 @@
+<h1> Movement new test </h1>
+
+<%= form_with(model: @movement, url: user_group_movement_index_path(user_id: current_user.id, group_id: @group), local: true, data:{turbo: false}, method: :post) do |form| %>
+  <!-- Form fields here -->
+  <%= form.text_field :name %>
+  <%= form.number_field :amount %>
+
+    <% puts '000000000000' %>
+  <% puts current_user.name %>
+    <% puts '000000000000' %>
+
+<% if @movement.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@movement.errors.count, "error") %> prohibited this movement from being saved:</h2>
+    <ul>
+      <% @movement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+  
+  <%= form.submit %>
+<% end %>

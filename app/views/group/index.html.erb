@@ -1,0 +1,26 @@
+<% stylesheet_link_tag 'group-index' %>
+<div class="group-index-cont", style="background-image: url('<%= asset_path 'waves.svg' %>');">
+  <h1 class="group-index-title"> WiseWallet </h1>
+  <h2> </h2>
+  <% if user_signed_in? %>
+    <% @groups.each do |g| %>
+      <div> <%= link_to g.name, user_group_path(current_user.id, g.id) %>
+        <%= g.movements.map{|m| "Name: #{m.name}, Amount: #{m.amount}"} %>
+        total: <%= g.movements.sum(:amount) %> </div>
+    <% end %>
+    <%= link_to "New user Group", new_user_group_path(current_user.id), data:{turbo: false}, class: "btn" %>
+  <% else %>
+    <style>
+      .shared-header-cont{display: none;}
+      .group-index-cont{max-width: 30rem}
+    </style>
+    <h3 class="group-index-sub"> Empower your financial incomes </br>  By intelligent strategic planning </h3>
+    <div class="group-index-actions">
+      <div class="btn-cont"><%= link_to "Register", new_user_registration_path, class: "group-index-button btn1" %></div>
+      <div class="btn-cont"><%= link_to "Log In", new_user_session_path, class: "group-index-button btn2" %></div>
+    </div>
+    <div class="group-index-social">
+
+    </div>
+  <% end %>
+</div>
