@@ -2,7 +2,7 @@
 <div class="testing">
   <% if user_signed_in? %>
     <% @groups.each do |g| %>
-      <div><%= g.name %>
+      <div><%= link_to g.name, user_group_path(current_user.id, g.id) %>
         <div>
         <% end %>
       </div>

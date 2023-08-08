@@ -1,7 +1,7 @@
 class GroupController < ApplicationController
     def index
       if user_signed_in?
-        @groups = Group.where(user_id: current_user.id)
+        @groups = Group.includes(:user).where(user_id: current_user.id)
       else
       end
     end
@@ -11,7 +11,7 @@ class GroupController < ApplicationController
     end
 
     def show
-        @group = Group.find(params[:id])
+        @group = Group.includes(:user).find(params[:id])
     end
 
     def create
