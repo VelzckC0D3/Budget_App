@@ -1,25 +1,35 @@
 class GroupController < ApplicationController
     def index
+      if user_signed_in?
         @groups = Group.where(user_id: current_user.id)
+      else
+      end
     end
 
     def new
         @group = Group.new
     end
 
-    def create
-        @group = Group.new(group_params)
-        if @group.save
-            redirect_to user_group_index_path(current_user.id), notice: "Group created successfully"
-        else
-            redirect_to user_group_index_path(current_user.id), alert: "Group creation failed"
-        end
+    def show
+        @group = Group.find(params[:id])
     end
+
+    def create
+        @group = current_user.groups.build(group_params) # Associate the group with the current user
+        if @group.save
+          redirect_to user_group_index_path(current_user.id), notice: 'Group was successfully created.'
+        else
+          render 'new'
+        end
+      end
+      
+      
+      
 
     private 
 
     def group_params
-        params.require(:group).permit(:name, :user_id, :icon)
+        params.require(:group).permit(:name, :icon)
     end
 
 end

@@ -1,10 +1,13 @@
 <h1> Test Group Index </h1>
 <div class="testing">
-  <% @groups.each do |g| %>
-    <div><%= g.name %>
+  <% if user_signed_in? %>
+    <% @groups.each do |g| %>
+      <div><%= g.name %>
+        <div>
+        <% end %>
+      </div>
+        <%= link_to "New user Group", new_user_group_path(current_user.id), data:{turbo: false}, class: "btn" %>
+    <% else %>
+      <h1> logged out </h1>
       <div>
-      <% end %>
-    </div>
-
-    <div>
-      <%= link_to "New Group", new_user_group_path(current_user.id), class: "btn" %>
+<% end %>

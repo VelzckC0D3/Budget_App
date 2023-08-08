@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :movements
-  has_many :groups, through: :movements
+  has_many :groups
 
   validates :name, presence: true, allow_blank: true
 end
