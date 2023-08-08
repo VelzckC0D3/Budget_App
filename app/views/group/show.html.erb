@@ -1,1 +1,3 @@
 <%= @group.name %>
+<%= link_to 'add movement', new_user_group_movement_path(current_user.id, @group.id) %>
+<%= @group.movements.map {|mov| "#{mov.name} #{mov.amount}"  } %>

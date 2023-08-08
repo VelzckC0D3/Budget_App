@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :movements
   has_many :groups
 
-  validates :name, presence: true, allow_blank: true
+  validates :name, presence: true, allow_blank: true, length: { minimum: 3, maximum: 50 }
 end

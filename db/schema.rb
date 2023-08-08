@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_015745) do
 
   create_table "movements", force: :cascade do |t|
     t.string "name"
+    t.integer "amount"
     t.bigint "user_id", null: false
     t.bigint "group_id", null: false
     t.datetime "created_at", null: false
