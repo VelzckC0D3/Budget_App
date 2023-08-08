@@ -22,9 +22,6 @@ class GroupController < ApplicationController
     end
   end
 
-
-
-
   private
 
   def group_params

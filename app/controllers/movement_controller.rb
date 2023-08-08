@@ -21,9 +21,7 @@ class MovementController < ApplicationController
     @group = Group.includes(:movements).find(params[:group_id])
     @total = @group.movements.sum(:amount)
   end
-
-
-
+  
   private
 
   def movement_params
