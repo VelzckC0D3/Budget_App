@@ -24,7 +24,7 @@
   0% {
     transform: scaleY(0);
   }
-  
+
   100% {
     transform: scaleY(1);
   }
@@ -60,7 +60,6 @@
   transform-origin: top;
   background-repeat: no-repeat;
   animation: fadeInBG 0.5s ease-in-out 0.4s forwards;
-  
 }
 
 .group-index-title {
@@ -176,4 +175,3 @@
   transform: scale(1.1);
   cursor: pointer;
 }
-
