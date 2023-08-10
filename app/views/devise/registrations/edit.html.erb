@@ -6,16 +6,28 @@
     <div class="error-messages">
       <%= render "devise/shared/error_messages", resource: resource %>
     </div>
+    <div class="avatar-title">
     <h1 class="form-title">update information</h1>
+    <%= image_tag("user_avatar/#{current_user.profile_picture}") %>
+    </div>
+
+<div class="form-inputs">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Update Email", class: "form-input" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "email", placeholder: "Update Name", class: "form-input" %>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
     <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Current Password", class: "form-input" %>
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "New Password", class: "form-input" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm New Password", class: "form-input" %>
+</div>
+    
     <%= f.submit "Update", class:"form-submit" %>
+
+<div class="form-buttons">
     <%= render "/shared/buttons" %>
+</div>
+
 <% end %>
  <div class="new-user", style="background-image: url('<%= asset_path 'signEdit.svg' %>');"></div>
   </div>

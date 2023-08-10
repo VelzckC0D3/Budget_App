@@ -1,5 +1,13 @@
 <style>
   .shared-header-cont{display:none;}
+  @media (max-width: 900px) {
+    .form-cont{
+      flex-direction: column-reverse;
+    }
+    .new-user{
+      height: 8.7rem;
+    }
+  }
 </style>
 <div class="form-cont">
   <div class="new-user", style="background-image: url('<%= asset_path 'signUp.svg' %>');"></div>
@@ -19,14 +27,22 @@
           </div>
         <% end %>
       <% end %>
-
     </div>
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full Name", class: "form-input" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Address", class: "form-input" %>
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "form-input" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "form-input" %>
+    <div class="form-inputs">
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full Name", class: "form-input" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Address", class: "form-input" %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "form-input" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "form-input" %>
+    </div>
+
+
     <%= f.submit "Sign up", class:"form-submit" %>
-    <%= render "devise/shared/links" %>
+
+<div class="form-buttons">
+    <p> already have an account? <%= link_to "log in", new_session_path(resource_name) %></p>
+    <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
     <%= render "/shared/buttons" %>
+</div>
+
   <% end %>
 </div>

@@ -136,7 +136,7 @@ body {
 
 .error-messages {
   left: 0;
-  background-color: rgba(0, 0, 0, 0.288);
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
 }
 
@@ -225,7 +225,7 @@ body {
 }
 
 .form-pictures-label {
-  padding: 1rem 0.25rem;
+  padding: 0 0.25rem 0.5rem;
 }
 
 .pictures-wrapper {
@@ -238,7 +238,7 @@ body {
   column-gap: 0.5rem;
   padding-top: 0.5rem;
   row-gap: 1rem;
-  border-bottom: 2px solid #0066ff4a;
+  border-bottom: 1px solid #0066ff9f;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
 }
@@ -286,8 +286,36 @@ body {
   max-width: 25rem;
 }
 
+.avatar-title {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.avatar-title img {
+  height: 4rem;
+  object-fit: contain;
+  transform: scaleX(-1);
+  border-bottom: 1px solid #0066ff9f;
+  border-radius: 50%;
+}
+
 .form-title {
   font-family: proxima-nova, sans-serif;
+  text-transform: capitalize;
+  align-self: center;
+}
+
+.form-inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .form-input {
@@ -311,15 +339,30 @@ body {
   appearance: none;
 }
 
+.form-submit:hover {
+  background-color: var(--secondary-color-hover);
+  cursor: pointer;
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 1rem;
+  font-size: 1.05rem;
+}
+
+.form-buttons p {
+  color: grey;
+}
+
 /* --------- Forms --------- */
 
 /* --------- Responsive --------- */
 
 @media (max-width: 500px) {
-  body {
-    background: none;
-  }
-
   .wrapper {
     padding: 0;
     border-radius: 0;

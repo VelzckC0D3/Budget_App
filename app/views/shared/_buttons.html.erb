@@ -1,1 +1,16 @@
 <%= link_to "go back", '/', data:{turbo:false}, class:'shared-back' %>
+<style> 
+.shared-back {
+  background-color: #e47921;
+  color: white;
+  padding: 0.08rem 0.5rem 0.2rem;
+  border-radius: 5px;
+  transform: translateY(0.5rem);
+  transition: all 0.15s ease-in-out;
+}
+
+.shared-back:hover {
+  background-color: #ff953e;
+  transform: scale(1.05) translateY(0.5rem);
+}
+</style>
