@@ -8,4 +8,8 @@ RSpec.describe User, type: :model do
   it 'Validates' do
     expect(@user).to be_valid
   end
+
+  it 'Haves the expected name' do
+    expect(@user.name).to eq('John')
+  end
 end

@@ -1,16 +1,24 @@
-<h2>Resend confirmation instructions</h2>
+<style>
+  .shared-header-cont{display:none;}
+</style>
+<div class="form-cont">
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <div class="error-messages">
+      <%= render "devise/shared/error_messages", resource: resource%>
+    </div>
+    <h1 class="form-title">resend confirmation</h1>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+ <div class="form-inputs">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),placeholder: "Email Address", class:"form-input" %>
+ </div>
+    
+    <%= f.submit "Resend confirmation instructions", class: "form-submit" %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-  </div>
+<div class="form-buttons">
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
+    <%= render "/shared/buttons" %>
+</div>
 
-<%= render "devise/shared/links" %>
+  <% end %>
+  <div class="new-user", style="background-image: url('<%= asset_path 'sendConf.svg' %>');"></div>
+</div>

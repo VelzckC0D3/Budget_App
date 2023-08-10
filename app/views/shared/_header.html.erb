@@ -13,9 +13,11 @@
     </nav>
   <% end %>
 </div>
-  <% if alert.present? || notice.present? %>
-    <div class="alerts">
-      <p class="alerts-text"><%= notice %></p>
-      <p class="alerts-text"><%= alert %></p>
-    </div>
+<div class="alerts">
+  <% if notice.present? %>
+    <p class="alerts-text"><%= notice %></p>
   <% end %>
+  <% if alert.present? %>
+    <p class="alerts-text"><%= alert %></p>
+  <% end %>
+</div>

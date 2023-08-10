@@ -20,19 +20,47 @@
   }
 }
 
+@keyframes fadeInBG {
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
 .group-index-cont {
   width: 100%;
   height: 100%;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgb(255, 255, 255);
+  background-position-y: -20rem;
   border-radius: 15px;
-  box-shadow: 1px 20px 20px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 20px 20px 1px rgba(0, 0, 0, 0.2), inset 0 0 20px 8px rgba(0, 0, 0, 0.2);
   background-repeat: no-repeat;
-  animation: fadeIn 0.5s ease-in-out forwards;
+  opacity: 0;
+  animation: fadeIn 0.7s ease-in-out forwards;
   transition: all 0.15s ease-in-out;
+}
+
+.group-index-cont::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  max-width: 29.5rem;
+  border-radius: 15px;
+  height: 98%;
+  top: 1.2rem;
+  transform: scaleY(0);
+  transform-origin: top;
+  background-repeat: no-repeat;
+  animation: fadeInBG 0.5s ease-in-out 0.4s forwards;
+  pointer-events: none;
 }
 
 .group-index-title {
@@ -40,7 +68,7 @@
   color: black;
   font-size: 3rem;
   opacity: 0;
-  animation: fadeIn 0.4s ease-in-out 0.5s forwards;
+  animation: fadeIn 0.7s ease-in-out 0.5s forwards;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,7 +77,7 @@
 
 .group-index-sub {
   transform: translateY(-2rem);
-  animation: fadeIn 0.4s ease-in-out 0.7s forwards;
+  animation: fadeIn 0.7s ease-in-out 0.6s forwards;
   opacity: 0;
   font-weight: 400;
   color: grey;
@@ -61,7 +89,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  transform: translateY(-1rem);
+  transform: translateY(-3rem);
 }
 
 .btn-cont {
@@ -75,12 +103,12 @@
 
 .btn-cont:nth-child(1) {
   opacity: 0;
-  animation: 0.4s fadeIn 1s ease-in-out forwards;
+  animation: 1s fadeIn ease-in-out 0.7s forwards;
 }
 
 .btn-cont:nth-child(2) {
   opacity: 0;
-  animation: 0.4s fadeIn 1.3s ease-in-out forwards;
+  animation: 1s fadeIn ease-in-out 0.8s forwards;
 }
 
 .group-index-button {
@@ -119,4 +147,32 @@
   filter: brightness(1.2);
   transform: scale(1.03);
   transition: transform 0.1s ease-in-out;
+}
+
+.group-index-social {
+  transform: translateY(-1.5rem);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeIn 0.7s ease-in-out 0.9s forwards;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.index-icon {
+  width: 2rem;
+  height: 2rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.index-icon:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }

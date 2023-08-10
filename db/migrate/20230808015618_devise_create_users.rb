@@ -6,6 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
 
       # Custom fields
       t.string :name
+      t.string :profile_picture
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
