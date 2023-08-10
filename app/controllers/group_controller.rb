@@ -1,4 +1,5 @@
 class GroupController < ApplicationController
+  load_and_authorize_resource
   def index
     return unless user_signed_in?
 
@@ -7,6 +8,7 @@ class GroupController < ApplicationController
 
   def new
     @group = Group.new
+    @icons = UserIcons::GROUPICONS
   end
 
   def show
@@ -14,6 +16,7 @@ class GroupController < ApplicationController
   end
 
   def create
+    @icons = UserIcons::GROUPICONS
     @group = current_user.groups.build(group_params) # Associate the group with the current user
     if @group.save
       redirect_to user_group_index_path(current_user.id), notice: 'Group was successfully created.'

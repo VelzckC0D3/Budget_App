@@ -5,6 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
     create_table :users do |t|
 
       # Custom fields
+      t.string :role, default: "user"
       t.string :name
       t.string :profile_picture
 

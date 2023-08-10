@@ -63,6 +63,10 @@
   pointer-events: none;
 }
 
+.group-index-header {
+  width: 100%;
+}
+
 .group-index-title {
   font-family: "Borel", cursive;
   color: black;
@@ -175,4 +179,16 @@
 .index-icon:hover {
   transform: scale(1.1);
   cursor: pointer;
+}
+
+@media (max-width: 560px) {
+  .group-index-cont {
+    padding: 2rem 1rem !important;
+    border-radius: 0;
+  }
+
+  .group-index-cont::before {
+    top: 0;
+    border-radius: 0;
+  }
 }

@@ -1,10 +1,13 @@
 <% stylesheet_link_tag 'group-index' %>
 <div class="group-index-cont">
-  <h1 class="group-index-title"> WiseWallet </h1>
   <% if user_signed_in? %>
+    <div class="group-index-header">
+      <h1 class="group-index-title">Transactions</h1>
+    </div>
     <style>
       .wrapper {padding: 0}
       .group-index-cont {justify-content: flex-start; border-radius: 0; padding: 2rem}
+      .group-index-title {font-size: 2.5rem;}
     </style>
     <% @groups.each do |g| %>
       <div> <%= link_to g.name, user_group_path(current_user.id, g.id) %>
@@ -13,15 +16,16 @@
     <% end %>
     <%= link_to "New Group", new_user_group_path(current_user.id), data:{turbo: false}, class: "btn" %>
     <% if @groups.any? %>
-    <%= link_to "New Movement", user_movement_new_move_path(current_user.id), data:{turbo: false}, class: "btn" %>
+      <%= link_to "New Movement", user_movement_new_move_path(current_user.id), data:{turbo: false}, class: "btn" %>
     <% end %>
   <% else %>
+    <h1 class="group-index-title"> WiseWallet </h1>
     <style>
       .shared-header-cont{display: none;}
       .group-index-cont{max-width: 30rem}
       .group-index-cont::before{background-image: url('<%= asset_path 'waves.svg' %>');}
     </style>
-    <h3 class="group-index-sub"> Empower your financial incomes </br>  By intelligent strategic planning </h3>
+    <h3 class="group-index-sub"> Control your financial management </br> With intelligent spending insights </h3>
   <div class="group-index-actions">
     <div class="btn-cont"><%= link_to "Register", new_user_registration_path, class: "group-index-button btn1" %></div>
     <div class="btn-cont"><%= link_to "Log In", new_user_session_path, class: "group-index-button btn2" %></div>
