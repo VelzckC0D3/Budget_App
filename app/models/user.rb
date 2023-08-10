@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :groups
 
   validates :name, presence: true, allow_blank: false, length: { minimum: 3, maximum: 50 }
-  validates :profile_picture, presence: true, allow_blank: false 
+  validates :profile_picture, presence: true, allow_blank: false
 end

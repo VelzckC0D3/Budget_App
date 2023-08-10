@@ -265,14 +265,14 @@ body {
   margin: -36px;
 }
 
-.profile-picture{
+.profile-picture {
   height: 4.3rem;
 }
 
 .picture-checkbox:checked {
   transform: scale(1) translateY(2rem);
   background-color: rgb(26, 158, 43);
-    border: 1px solid black;
+  border: 1px solid black;
   opacity: 0.3;
 }
 

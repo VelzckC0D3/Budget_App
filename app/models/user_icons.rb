@@ -28,5 +28,5 @@ module UserIcons
     'avatar26.svg',
     'avatar27.svg',
     'avatar28.svg'
-  ]
+  ].freeze
 end
