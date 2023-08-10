@@ -1,23 +1,25 @@
 <% stylesheet_link_tag 'group-index' %>
 <div class="group-index-cont">
-  <style>
-    .group-index-cont::before{
-      background-image: url('<%= asset_path 'waves.svg' %>');
-
-    }
-  </style>
   <h1 class="group-index-title"> WiseWallet </h1>
   <% if user_signed_in? %>
+    <style>
+      .wrapper {padding: 0}
+      .group-index-cont {justify-content: flex-start; border-radius: 0; padding: 2rem}
+    </style>
     <% @groups.each do |g| %>
       <div> <%= link_to g.name, user_group_path(current_user.id, g.id) %>
         <%= g.movements.map{|m| "Name: #{m.name}, Amount: #{m.amount}"} %>
         total: <%= g.movements.sum(:amount) %> </div>
     <% end %>
-    <%= link_to "New user Group", new_user_group_path(current_user.id), data:{turbo: false}, class: "btn" %>
+    <%= link_to "New Group", new_user_group_path(current_user.id), data:{turbo: false}, class: "btn" %>
+    <% if @groups.any? %>
+    <%= link_to "New Movement", user_movement_new_move_path(current_user.id), data:{turbo: false}, class: "btn" %>
+    <% end %>
   <% else %>
     <style>
       .shared-header-cont{display: none;}
       .group-index-cont{max-width: 30rem}
+      .group-index-cont::before{background-image: url('<%= asset_path 'waves.svg' %>');}
     </style>
     <h3 class="group-index-sub"> Empower your financial incomes </br>  By intelligent strategic planning </h3>
   <div class="group-index-actions">

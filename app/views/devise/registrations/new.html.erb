@@ -1,10 +1,5 @@
 <style>
   .shared-header-cont{display:none;}
-  @media (max-width: 733px) {
-    .form-cont{
-      flex-direction: column-reverse;
-    }
-  }
 </style>
 <div class="form-cont">
   <div class="new-user", style="background-image: url('<%= asset_path 'signUp.svg' %>');"></div>
@@ -13,6 +8,19 @@
       <%= render "devise/shared/error_messages", resource: resource%>
     </div>
     <h1 class="form-title">sign up</h1>
+    <h4 class="form-pictures-label"> Pick a Picture (scroll down for more options) </h4>
+    <div class="pictures-wrapper">
+      <% if @icons.blank? %>
+      <% else %>
+        <% @icons.map do |i| %>
+          <div class="pictures-cont">
+            <%= f.radio_button :profile_picture, i, class:'picture-checkbox', required: true %>
+            <%= image_tag "user_avatar/#{i}", class:'profile-picture' %>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
     <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full Name", class: "form-input" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Address", class: "form-input" %>
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "form-input" %>

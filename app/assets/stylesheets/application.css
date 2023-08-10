@@ -224,6 +224,58 @@ body {
   padding: 1rem;
 }
 
+.form-pictures-label {
+  padding: 1rem 0.25rem;
+}
+
+.pictures-wrapper {
+  height: 5.3rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+  padding-top: 0.5rem;
+  row-gap: 1rem;
+  border-bottom: 2px solid #0066ff4a;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.pictures-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.picture-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 4.3rem;
+  height: 4.3rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  transform: scale(1) translateY(2rem);
+  opacity: 0;
+  margin: -36px;
+}
+
+.profile-picture{
+  height: 4.3rem;
+}
+
+.picture-checkbox:checked {
+  transform: scale(1) translateY(2rem);
+  background-color: rgb(26, 158, 43);
+    border: 1px solid black;
+  opacity: 0.3;
+}
+
 .new_user,
 .edit_user {
   display: flex;

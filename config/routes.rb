@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "group#index"
 
   resources :user do 
+    resources :movement, only: [:new, :create]
+    get '/movement/new_move' => 'movement#new_mov'
     resources :group, only: [:index, :new, :create, :show] do
       resources :movement, only: [:index, :new, :create, :show]
     end
