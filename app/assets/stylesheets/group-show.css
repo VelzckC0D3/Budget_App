@@ -46,3 +46,31 @@
   border-radius: 15px;
   background-color: var(--secondary-color);
 }
+
+.movement-delete {
+  color: red;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  outline: none;
+}
+
+.movement-delete::before {
+  content: '';
+  width: 7rem;
+  height: 1px;
+  background-color: red;
+  position: absolute;
+  transform: translateY(1.1rem) translateX(-1px) scaleX(0);
+  transform-origin: center;
+  transition: all 0.15s ease-in-out;
+}
+
+.movement-delete:hover::before,
+.movement-delete:active::before {
+  transform: translateY(1.1rem) translateX(-1px) scaleX(1);
+}

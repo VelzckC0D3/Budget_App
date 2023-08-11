@@ -13,6 +13,7 @@
         .group-actions { width: 100vw; justify-content: center; gap: 0;}
         .group-btn {width: 100vw; margin: 0; border-radius: 0;}
         .group-index-cont{gap:0;}
+        .shared-back {margin-bottom: 1rem;}
 
       }
     </style>
@@ -68,6 +69,7 @@
         </div>
       <% end %>
     </div>
+  
     <% if @groups.any? %>
       <div class="group-actions">
         <%= link_to "New Group", new_user_group_path(current_user.id), data:{turbo: false}, class: "group-btn" %>
@@ -77,6 +79,7 @@
   <% else %>
     <h1 class="group-index-title"> WiseWallet </h1>
     <style>
+    .shared-back {  }
       .shared-header-cont{display: none;}
       .group-index-cont{max-width: 30rem}
       .group-index-cont::before{background-image: url('<%= asset_path 'waves.svg' %>');}

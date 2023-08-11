@@ -4,7 +4,6 @@
       <ul class="shared-header-ul">
         <p class="menu-btn-cont"> <span class="menu-text">Menu</span> <%= image_tag("menu_icons/menuButton.svg", class:'menu-btn') %>
           <p>
-
             <div class="shared-header-wrapper">
               <div class="shared-header-menu">
                 <div class="menu-profile">
@@ -28,6 +27,9 @@
                 <% end %>
               </div>
             </div>
+            <%= link_to :back do %>
+              <%= image_tag("menu_icons/back.svg",class:'back') %>
+            <% end %>
           </ul>
         <% else  %>
           <ul class="shared-header-ul">
@@ -52,6 +54,5 @@
       document.querySelector('.menu-btn-cont').classList.toggle('btn-on');
       document.querySelector('.menu')
       document.querySelector('.menu-btn').classList.toggle('menu-btn-on');
-
       });
     </script>
