@@ -19,9 +19,13 @@ class MovementController < ApplicationController
       @group = Group.where(user_id: current_user.id)
     end
     if @movement.save
-      redirect_to user_group_index_path(current_user.id), notice: 'Movement was successfully added.'
+      if params[:group_id]
+        redirect_to user_group_path(current_user.id, @movement.group.id), notice: 'Movement was successfully added.'
+      else
+        redirect_to user_group_index_path(current_user.id), notice: 'Movement was successfully added.'
+      end
     else
-      render 'new'
+      puts 'error'
     end
   end
 

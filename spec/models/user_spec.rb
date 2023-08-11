@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before(:each) do
-    @user = User.create!(name: 'John', email: 'testing@ruby.com', password: 'password', confirmed_at: Time.now)
+    @user = User.create!(role: 'user', profile_picture: 'picture.png', name: 'John', email: 'testing@ruby.com',
+                         password: 'password', confirmed_at: Time.now)
   end
 
   it 'Validates' do
@@ -11,5 +12,9 @@ RSpec.describe User, type: :model do
 
   it 'Haves the expected name' do
     expect(@user.name).to eq('John')
+  end
+
+  it 'Haves a profile picture' do
+    expect(@user.profile_picture).to eq('picture.png')
   end
 end

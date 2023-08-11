@@ -1,23 +1,34 @@
-<h1> Testing h1 </h1>
+<style>
 
-<h1> Movementaaaa new test </h1>
+@media (max-width: 625px) {
+  .data-form-cont{
+    flex-direction: column-reverse;
+  }
+}
 
-<%= form_with(model: @movement, url: user_movement_index_path(user_id: current_user.id), local: true, data:{turbo: false}, method: :post) do |form| %>
-  <!-- Form fields here -->
-  <%= form.text_field :name, placeholder: 'Transtaction Name' %>
-  <%= form.number_field :amount, placeholder: 'Amount' %>
-  <%= form.collection_select(:group_id, @groups, :id, :name, {include_blank: "select group"}) %>
+</style>
 
-<% if @movement.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@movement.errors.count, "error") %> prohibited this movement from being saved:</h2>
-    <ul>
+<div class="data-form-cont">
+<div class="form-image", style="background-image: url('<%= asset_path 'addMov.svg' %>');"></div>
+  <%= form_with(model: @movement, url: user_movement_index_path(user_id: current_user.id), local: true, data:{turbo: false}, method: :post, class:'data-form') do |form| %>
+    <h1 class="form-title">add new movement</h1>
+    <!-- Form fields here -->
+    <div class="form-inputs">
+      <%= form.text_field :name, placeholder: 'Transtaction Name', class: 'form-input', required: true %>
+      <%= form.number_field :amount, placeholder: 'Amount', class: 'form-input', required: true %>
+      <%= form.collection_select(:group_id, @groups, :id, :name, {include_blank: "select group"}, class:'form-input group-select', required: true) %>
+    </div>
+    <% if @movement.errors.any? %>
       <% @movement.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-  
-  <%= form.submit %>
-<% end %>
+        <div class="error-messages"> 
+          <p class="error-text"><%= msg %></p>
+        <% end %>
+      </div>
+    <% end %>
+    <%= form.submit class:'form-submit' %>
+        <div class="form-buttons">
+      <%= render "/shared/buttons" %>
+    </div>
+  <% end %>
+   
+</div>

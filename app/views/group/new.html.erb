@@ -28,8 +28,8 @@
       <% @group.errors.full_messages.each do |msg| %>
         <div class="error-messages">
           <p class="error-text"><%= msg %></p>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% end %>
     <%= form.submit "Create Group", class:'form-submit' %>
     <div class="form-buttons">

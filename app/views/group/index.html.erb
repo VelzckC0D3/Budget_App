@@ -56,17 +56,21 @@
         <% end %>
       <% else %>
         <style>
-          .group-cont::-webkit-scrollbar{display:none}
+          .group-empty {color: grey; text-align: center;}
+          .group-empty-link {margin:0.5rem;}
+          .group-empty-link a {color: white; padding: 0.5rem 1rem; background-color: #f80; border-radius: 8px; font-weight: bold;}
+          .group-cont {justify-content: center;}
         </style>
-        <h1>testing empty</h1>
+        <h2 class="group-empty">You don't have any group jet</h2>
+        <p class="group-empty-link"><%= link_to "Add the first one", new_user_group_path(current_user.id), data:{turbo: false}%></p>
       <% end %>
     </div>
-    <div class="group-actions">
-      <%= link_to "New Group", new_user_group_path(current_user.id), data:{turbo: false}, class: "group-btn" %>
-      <% if @groups.any? %>
+    <% if @groups.any? %>
+      <div class="group-actions">
+        <%= link_to "New Group", new_user_group_path(current_user.id), data:{turbo: false}, class: "group-btn" %>
         <%= link_to "New Movement", user_movement_new_move_path(current_user.id), data:{turbo: false}, class: "group-btn" %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   <% else %>
     <h1 class="group-index-title"> WiseWallet </h1>
     <style>

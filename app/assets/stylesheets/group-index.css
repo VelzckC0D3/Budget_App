@@ -54,14 +54,13 @@
   content: '';
   position: absolute;
   width: 100%;
-  max-width: 29.5rem;
+  max-width: 29rem;
   border-radius: 15px;
   height: 98%;
-  top: 1.2rem;
   transform: scaleY(0);
   transform-origin: top;
   background-repeat: no-repeat;
-  animation: fadeInBG 0.5s ease-in-out 0.4s forwards;
+  animation: fadeInBG 0.7s ease-in-out 0.2s forwards;
   pointer-events: none;
 }
 
@@ -74,7 +73,7 @@
   color: black;
   font-size: 3rem;
   opacity: 0;
-  animation: fadeIn 0.7s ease-in-out 0.5s forwards;
+  animation: fadeIn 0.7s ease-in-out 0.3s forwards;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,12 +88,15 @@
   justify-content: center;
   transform: translateY(-1.5rem);
   opacity: 0;
-  animation: fadeIn 0.7s ease-in-out 0.8s forwards;
+  animation: fadeIn 0.7s ease-in-out 0.4s forwards;
 }
 
 .group-tag-name {
-  color: grey;
+  color: black;
   font-weight: 400;
+  padding: 0 0.25rem;
+  border-radius: 5px;
+  margin-top: 0.5rem;
 }
 
 .group-cont {
@@ -111,7 +113,7 @@
   border-radius: 15px;
   background-color: #ffffff82;
   border: 2px solid rgb(255, 255, 255);
-  animation: fadeIn 0.7s ease-in-out 1.1s forwards;
+  animation: fadeIn 0.7s ease-in-out 0.5s forwards;
   opacity: 0;
 }
 
@@ -226,12 +228,12 @@
 
 .group-btn:nth-child(1) {
   background-color: var(--main-color);
-  animation: fadeIn 0.7s ease-in-out 1.3s forwards;
+  animation: fadeIn 0.7s ease-in-out 0.6s forwards;
 }
 
 .group-btn:nth-child(2) {
   background-color: var(--secondary-color);
-  animation: fadeIn 0.7s ease-in-out 1.5s forwards;
+  animation: fadeIn 0.7s ease-in-out 0.7s forwards;
 }
 
 .group-index-sub {
