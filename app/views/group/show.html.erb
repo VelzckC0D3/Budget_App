@@ -8,7 +8,7 @@
 <div class="group-index-cont">
   <%= image_tag("group_icons/#{@group.icon}", class:"group-image", alt:"group image" )%>
   <h1 class="movement-title"> <%= @group.name %> Movements </h1>
-  <h3>Total: $<%= number_with_delimiter(@group.movements.sum(:amount), delimiter: '.', separator: ',') %></h3>
+  <h3 class="movement-sub">Total: $<%= number_with_delimiter(@group.movements.sum(:amount), delimiter: '.', separator: ',') %></h3>
   <% if @group.movements.any? %>
     <div class="movement-cont">
       <% @group.movements.map do |m| %>
@@ -34,6 +34,7 @@
 .shared-back {transform: translateY(-0.4rem)} 
 .shared-back:hover {transform: translateY(-0.4rem)}
 .movement-btn {transform: translateY(-1rem)}
+.movement-sub {margin-bottom: 2rem}
 @media (max-width: 500px) {
 .group-index-cont { padding: 1rem 0  0!important; }
 .movement-btn { border-radius: 0;  transform: translateY(0.3rem); }
