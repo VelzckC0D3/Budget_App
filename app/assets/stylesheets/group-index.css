@@ -111,8 +111,6 @@
   padding: 0.5rem;
   transform: translateY(-1rem);
   border-radius: 15px;
-  background-color: #ffffff82;
-  border: 2px solid rgb(255, 255, 255);
   animation: fadeIn 0.7s ease-in-out 0.5s forwards;
   opacity: 0;
 }
@@ -219,6 +217,7 @@
 
 .group-btn {
   color: white;
+  border: 1px solid black;
   padding: 1rem;
   width: 100%;
   text-align: center;

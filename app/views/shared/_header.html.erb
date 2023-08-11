@@ -2,7 +2,7 @@
   <nav class="shared-header-nav">
     <% if user_signed_in? %>
       <ul class="shared-header-ul">
-        <li class="shared-header-li"><%= link_to current_user.name, edit_user_registration_path(current_user.id), class:"navbar-title" %> </li>
+        <li class="shared-header-li"><%= link_to current_user.name, '/', class:"navbar-title" %> </li>
         <li class="shared-header-li"><%= button_to "Sign out", destroy_user_session_path, :method => :get, class: "btn" %> </li>
       </ul>
     <% else  %>

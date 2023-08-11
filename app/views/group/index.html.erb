@@ -47,22 +47,25 @@
               </div>
             <% end %>
             <div class="group-total">
-              <%= button_to 'Delete Group', user_group_path(current_user.id, g.id), method: :delete, data: {turbo_confirm: 'Delete group and its movements?'}, class:'group-delete' %>
               <p class="group-movement-total">
                 Total: $<%= number_with_delimiter(g.movements.sum(:amount), delimiter: '.', separator: ',') %>
               </p>
+              <%= button_to 'Delete Group', user_group_path(current_user.id, g.id), method: :delete, data: {turbo_confirm: 'Delete group and its movements?'}, class:'group-delete' %>
             </div>
           </div>
         <% end %>
       <% else %>
         <style>
+          .group-empty-cont {display: flex; flex-direction: column; justify-content: center; align-items: center; transform: translateY(-5rem); gap: 1rem;}
           .group-empty {color: grey; text-align: center;}
           .group-empty-link {margin:0.5rem;}
           .group-empty-link a {color: white; padding: 0.5rem 1rem; background-color: #f80; border-radius: 8px; font-weight: bold;}
           .group-cont {justify-content: center;}
         </style>
+        <div class="group-empty-cont">
         <h2 class="group-empty">You don't have any group jet</h2>
         <p class="group-empty-link"><%= link_to "Add the first one", new_user_group_path(current_user.id), data:{turbo: false}%></p>
+        </div>
       <% end %>
     </div>
     <% if @groups.any? %>
