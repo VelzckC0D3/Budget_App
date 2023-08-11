@@ -12,7 +12,7 @@
     <h1 class="form-title">add new movement</h1>
     <!-- Form fields here -->
     <div class="form-inputs">
-      <%= form.text_field :name, placeholder: 'Transtaction Name', class: 'form-input', required: true %>
+      <%= form.text_field :name, placeholder: 'Transaction Name', class: 'form-input', required: true %>
       <%= form.number_field :amount, placeholder: 'Amount', class: 'form-input', required: true %>
       <%= form.collection_select(:group_id, @groups, :id, :name, {include_blank: "select group"}, class:'form-input group-select', required: true) %>
     </div>
