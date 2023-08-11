@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "GroupIndex", type: :system do
+RSpec.describe 'GroupIndex', type: :system do
   before(:each) do
     driven_by(:rack_test)
-    @user = User.create!(role: 'user', profile_picture: 'avatar1.svg', name: 'John', email: 'testing@ruby.com', password: 'password', confirmed_at: Time.now)
+    @user = User.create!(role: 'user', profile_picture: 'avatar1.svg', name: 'John', email: 'testing@ruby.com',
+                         password: 'password', confirmed_at: Time.now)
     @group = Group.create!(name: 'Test Group', icon: 'icon1.svg', user_id: @user.id)
-
 
     visit new_user_session_path
 
@@ -17,13 +17,13 @@ RSpec.describe "GroupIndex", type: :system do
   end
 
   it 'displays the group name' do
-    expect(page).to have_css(".group-name")
+    expect(page).to have_css('.group-name')
   end
-  
+
   it 'displays the group icon' do
-    expect(page).to have_css(".group-image")
+    expect(page).to have_css('.group-image')
   end
-  
+
   it 'displays the name of the group' do
     expect(page).to have_content('Test Group')
   end
@@ -31,7 +31,7 @@ RSpec.describe "GroupIndex", type: :system do
   it 'displays the creation date of the group' do
     expect(page).to have_css('.group-created')
   end
-  
+
   it 'displays the total amount of the transactions' do
     expect(page).to have_css('.group-movement-total')
   end

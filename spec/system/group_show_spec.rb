@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "GroupShow", type: :system do
+RSpec.describe 'GroupShow', type: :system do
   before(:each) do
     driven_by(:rack_test)
-    @user = User.create!(role: 'user', profile_picture: 'avatar1.svg', name: 'John', email: 'testing@ruby.com', password: 'password', confirmed_at: Time.now)
+    @user = User.create!(role: 'user', profile_picture: 'avatar1.svg', name: 'John', email: 'testing@ruby.com',
+                         password: 'password', confirmed_at: Time.now)
     @group = Group.create!(name: 'Test Group', icon: 'icon1.svg', user_id: @user.id)
     @movement1 = Movement.create!(name: 'Test Movement 1', amount: 5000, group_id: @group.id, user_id: @user.id)
     @movement2 = Movement.create!(name: 'Test Movement 2', amount: 5000, group_id: @group.id, user_id: @user.id)
     @movement3 = Movement.create!(name: 'Test Movement 3', amount: 5000, group_id: @group.id, user_id: @user.id)
-
 
     visit new_user_session_path
 
