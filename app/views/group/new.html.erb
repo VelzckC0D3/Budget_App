@@ -12,7 +12,7 @@
 <div class="data-form-cont">
   <%= form_with(model: @group, url: user_group_index_path(current_user), local: true, data:{turbo: false}, class:'data-form') do |form| %>
     <h1 class="form-title">add new group</h1>
-    <h4 class="form-pictures-label"> Pick a logo (scroll down for more options) </h4>
+    <h4 class="form-pictures-label"> Pick an Image (scroll down for more options) </h4>
     <div class="pictures-wrapper">
       <% @icons.map do |i| %>
         <div class="pictures-cont">
@@ -21,9 +21,9 @@
         </div>
       <% end %>
     </div>
- <div class="form-inputs">
-    <%= form.text_field :name, placeholder: 'Group Name', class: 'form-input' %>
-        </div>
+    <div class="form-inputs">
+      <%= form.text_field :name, placeholder: 'Group Name', class: 'form-input' %>
+    </div>
     <% if @group.errors.any? %>
       <% @group.errors.full_messages.each do |msg| %>
         <div class="error-messages">
@@ -32,6 +32,9 @@
       <% end %>
     <% end %>
     <%= form.submit "Create Group", class:'form-submit' %>
+    <div class="form-buttons">
+      <%= render "/shared/buttons" %>
+    </div>
   <% end %>
-  <div class="new-user", style="background-image: url('<%= asset_path 'addGroup.svg' %>');"></div>
+  <div class="form-image", style="background-image: url('<%= asset_path 'addGroup.svg' %>');"></div>
 </div>

@@ -7,7 +7,7 @@
   }
 </style>
 <div class="form-cont">
-  <div class="new-user", style="background-image: url('<%= asset_path 'forgotPass.svg' %>');"></div>
+  <div class="form-image", style="background-image: url('<%= asset_path 'forgotPass.svg' %>');"></div>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <div class="error-messages">
       <%= render "devise/shared/error_messages", resource: resource%>

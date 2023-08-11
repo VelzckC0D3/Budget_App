@@ -4,13 +4,13 @@
     .form-cont{
       flex-direction: column-reverse;
     }
-    .new-user{
+    .form-image{
       height: 8.7rem;
     }
   }
 </style>
 <div class="form-cont">
-  <div class="new-user", style="background-image: url('<%= asset_path 'signUp.svg' %>');"></div>
+  <div class="form-image", style="background-image: url('<%= asset_path 'signUp.svg' %>');"></div>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <div class="error-messages">
       <%= render "devise/shared/error_messages", resource: resource%>

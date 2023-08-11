@@ -2,22 +2,71 @@
 <div class="group-index-cont">
   <% if user_signed_in? %>
     <div class="group-index-header">
-      <h1 class="group-index-title">Transactions</h1>
+      <h1 class="group-index-title">WiseWallet</h1>
     </div>
     <style>
       .wrapper {padding: 0}
-      .group-index-cont {justify-content: flex-start; border-radius: 0; padding: 2rem}
-      .group-index-title {font-size: 2.5rem;}
+      .group-index-cont {justify-content: flex-start; border-radius: 0; padding: 0.7rem; gap: 1rem;}
+      .group-index-title {font-size: 2.5rem; transform: translateY(1rem)}
+      @media (max-width: 500px) {
+        .group-cont {box-shadow: none; width: 100dvw; height: 120%; border:none; border-radius: 0;}
+        .group-actions { width: 100vw; justify-content: center; gap: 0;}
+        .group-btn {width: 100vw; margin: 0; border-radius: 0;}
+        .group-index-cont{gap:0;}
+
+      }
     </style>
-    <% @groups.each do |g| %>
-      <div> <%= link_to g.name, user_group_path(current_user.id, g.id) %>
-        <%= g.movements.map{|m| "Name: #{m.name}, Amount: #{m.amount}"} %>
-        total: <%= g.movements.sum(:amount) %> </div>
-    <% end %>
-    <%= link_to "New Group", new_user_group_path(current_user.id), data:{turbo: false}, class: "btn" %>
-    <% if @groups.any? %>
-      <%= link_to "New Movement", user_movement_new_move_path(current_user.id), data:{turbo: false}, class: "btn" %>
-    <% end %>
+    <div class="group-tags">
+      <h3 class="group-tag-name">Groups information</h3>
+    </div>
+    <div class="group-cont">
+      <style>
+        .group-index-cont{
+        background-image: url('<%= asset_path 'index-bg.svg' %>');
+        background-position-Y: -2rem;
+        background-position-x: -6rem;
+        background-size: 131vw 31rem;
+        }
+        @media (max-width: 1024px) {
+
+        .group-index-cont {
+        background-size: 94rem 33rem;
+        background-position-x: -31rem;
+        }
+
+        }
+      </style>
+      <% if @groups.any? %>
+        <% @groups.each do |g| %>
+          <div class="group-info">
+            <%= link_to  user_group_path(current_user.id, g.id), class:'group-link' do %>
+              <%= image_tag("group_icons/#{g.icon}", class:"group-image", alt:"group image" )%>
+              <div class="group-data">
+                <h3 class="group-name"> <%= g.name %> </h3>
+                <p class="group-created"> <%= g.created_at.strftime("%B %d, %Y") %></p>
+              </div>
+            <% end %>
+            <div class="group-total">
+              <%= button_to 'Delete Group', user_group_path(current_user.id, g.id), method: :delete, data: {turbo_confirm: 'Delete group and its movements?'}, class:'group-delete' %>
+              <p class="group-movement-total">
+                Total: $<%= number_with_delimiter(g.movements.sum(:amount), delimiter: '.', separator: ',') %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <style>
+          .group-cont::-webkit-scrollbar{display:none}
+        </style>
+        <h1>testing empty</h1>
+      <% end %>
+    </div>
+    <div class="group-actions">
+      <%= link_to "New Group", new_user_group_path(current_user.id), data:{turbo: false}, class: "group-btn" %>
+      <% if @groups.any? %>
+        <%= link_to "New Movement", user_movement_new_move_path(current_user.id), data:{turbo: false}, class: "group-btn" %>
+      <% end %>
+    </div>
   <% else %>
     <h1 class="group-index-title"> WiseWallet </h1>
     <style>
