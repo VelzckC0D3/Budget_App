@@ -20,7 +20,7 @@ class MovementController < ApplicationController
     end
     if @movement.save
       if params[:group_id]
-        redirect_to user_group_path(current_user.id, @movement.group.id), notice: 'Movement was successfully added.'
+        redirect_to user_group_path(current_user.id, @group), notice: 'Movement was successfully added.'
       else
         redirect_to user_group_index_path(current_user.id), notice: 'Movement was successfully added.'
       end
@@ -33,6 +33,12 @@ class MovementController < ApplicationController
     @movements = Movement.includes(:groups).where(user_id: params[:user_id], group_id: params[:group_id])
     @group = Group.includes(:movements).find(params[:group_id])
     @total = @group.movements.sum(:amount)
+  end
+
+  def destroy
+    @movement = Movement.find(params[:id])
+    @movement.destroy
+    redirect_to user_group_path(current_user.id, @movement.group.id), notice: 'Movement was successfully deleted.'
   end
 
   private

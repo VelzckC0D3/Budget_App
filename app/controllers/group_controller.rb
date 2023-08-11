@@ -12,7 +12,7 @@ class GroupController < ApplicationController
   end
 
   def show
-    @group = Group.includes(:user).find(params[:id])
+    @group = Group.includes(:user).order(created_at: :desc).find(params[:id])
   end
 
   def create

@@ -1,16 +1,13 @@
 <style>
-.wrapper {padding: 0}
+  .shared-header-cont{display:none;}
+  .wrapper {padding: 0}
   .shared-back {transform: translateY(0px) !important;}
-@media (max-width: 625px) {
-  .data-form-cont{
-    flex-direction: column-reverse;
+  @media (max-width: 625px) {
+    .data-form-cont{ flex-direction: column-reverse; }
   }
-}
-
 </style>
-
 <div class="data-form-cont">
-<div class="form-image", style="background-image: url('<%= asset_path 'addMov.svg' %>');"></div>
+  <div class="form-image", style="background-image: url('<%= asset_path 'addMov.svg' %>');"></div>
   <%= form_with(model: @movement, url: user_movement_index_path(user_id: current_user.id), local: true, data:{turbo: false}, method: :post, class:'data-form') do |form| %>
     <h1 class="form-title">add new movement</h1>
     <!-- Form fields here -->
@@ -21,15 +18,14 @@
     </div>
     <% if @movement.errors.any? %>
       <% @movement.errors.full_messages.each do |msg| %>
-        <div class="error-messages"> 
+        <div class="error-messages">
           <p class="error-text"><%= msg %></p>
         <% end %>
       </div>
     <% end %>
     <%= form.submit class:'form-submit' %>
-        <div class="form-buttons">
+    <div class="form-buttons">
       <%= render "/shared/buttons" %>
     </div>
   <% end %>
-   
 </div>
