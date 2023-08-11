@@ -3,7 +3,7 @@ class GroupController < ApplicationController
   def index
     return unless user_signed_in?
 
-    @groups = Group.includes(:user).where(user_id: current_user.id)
+    @groups = Group.where(user_id: current_user.id)
   end
 
   def new
@@ -12,7 +12,7 @@ class GroupController < ApplicationController
   end
 
   def show
-    @group = Group.includes(:user).order(created_at: :desc).find(params[:id])
+    @group = Group.order(created_at: :desc).find(params[:id])
   end
 
   def create

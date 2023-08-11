@@ -137,6 +137,20 @@ body {
   transition: all 0.7s ease-in-out;
 }
 
+.closeTest {
+  color: white;
+  transform: translateY(-4rem) translateX(-6rem);
+  font-weight: bold;
+  border-radius: 50%;
+  border: 1px solid white;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 .back {
   width: 2rem;
   height: 2rem;
@@ -151,14 +165,14 @@ body {
 
 .shared-header-wrapper {
   position: absolute;
-  top: 3.3rem;
+  top: 0;
   right: 0;
   width: 17rem;
   transform-origin: top;
   pointer-events: none;
   overflow: hidden;
   /* stylelint-disable */
-  height: 90dvh;
+  height: 100dvh;
   /* stylelint-enable */
 }
 
@@ -204,6 +218,7 @@ body {
 
 .menu-profile {
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 0.3rem;
   margin: 0.5rem 0;

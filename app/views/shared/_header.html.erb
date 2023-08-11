@@ -6,6 +6,7 @@
           <p>
             <div class="shared-header-wrapper">
               <div class="shared-header-menu">
+                <p class="closeTest">X</p>
                 <div class="menu-profile">
                   <%= image_tag("user_icons/#{current_user.profile_picture}",class:'menu-img') %>
                   <%= current_user.name %>
@@ -25,10 +26,14 @@
                 <%= link_to destroy_user_session_path, :method => :get,class:'shared-header-li menu-exit' do %>
                   <%= image_tag("menu_icons/menuExit.svg", class:'nav-icon menu-exit') %> Log Out
                 <% end %>
+                <div class="divider"></div>
+                <%= link_to '/', :method => :get,class:'shared-header-li menu-exit' do %>
+                  <%= image_tag("menu_icons/menuHome.svg", class:'nav-icon menu-exit') %> Home / Index
+                <% end %>
               </div>
             </div>
             <%= link_to :back do %>
-              <%= image_tag("menu_icons/back.svg",class:'back') %>
+              <%= image_tag("menu_icons/menuBack.svg",class:'back') %>
             <% end %>
           </ul>
         <% else  %>
@@ -51,6 +56,13 @@
     <script>
       document.querySelector('.menu-btn-cont').addEventListener('click', (e) => {
       document.querySelector('.shared-header-menu').classList.toggle('active');
+      document.querySelector('.menu-btn-cont').classList.toggle('btn-on');
+      document.querySelector('.menu')
+      document.querySelector('.menu-btn').classList.toggle('menu-btn-on');
+      });
+      document.querySelector('.closeTest').addEventListener('click', (e) => {
+      document.querySelector('.shared-header-menu').classList.toggle('active');
+    
       document.querySelector('.menu-btn-cont').classList.toggle('btn-on');
       document.querySelector('.menu')
       document.querySelector('.menu-btn').classList.toggle('menu-btn-on');
