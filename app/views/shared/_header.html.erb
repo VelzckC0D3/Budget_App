@@ -2,22 +2,57 @@
   <nav class="shared-header-nav">
     <% if user_signed_in? %>
       <ul class="shared-header-ul">
-        <li class="shared-header-li"><%= link_to current_user.name, edit_user_registration_path(current_user.id), class:"navbar-title" %> </li>
-        <li class="shared-header-li"><%= button_to "Sign out", destroy_user_session_path, :method => :get, class: "btn" %> </li>
-      </ul>
-    <% else  %>
-      <ul class="shared-header-ul">
-        <li class="shared-header-li"> <%= link_to "Sign in", new_user_session_path, class: "btn" %>  </li>
-        <li class="shared-header-li"> <%= link_to "Sign up", new_user_registration_path, class: "btn" %> </li>
-      </ul>
-    </nav>
-  <% end %>
-</div>
-<div class="alerts">
-  <% if notice.present? %>
-    <p class="alerts-text"><%= notice %></p>
-  <% end %>
-  <% if alert.present? %>
-    <p class="alerts-text"><%= alert %></p>
-  <% end %>
-</div>
+        <p class="menu-btn-cont"> <span class="menu-text">Menu</span> <%= image_tag("menu_icons/menuButton.svg", class:'menu-btn') %>
+          <p>
+            <div class="shared-header-wrapper">
+              <div class="shared-header-menu">
+                <div class="menu-profile">
+                  <%= image_tag("user_icons/#{current_user.profile_picture}",class:'menu-img') %>
+                  <%= current_user.name %>
+                </div>
+                <%= link_to edit_user_registration_path(current_user.id),class:'shared-header-li' do %>
+                  <%= image_tag("menu_icons/menuConfig.svg", class:'nav-icon') %> Account Settings 
+                <% end %>
+                <div class="divider"></div>
+                <%= link_to new_user_group_path(current_user.id),class:'shared-header-li' do %>
+                  <%= image_tag("menu_icons/menuAddGroup.svg", class:'nav-icon') %> New Group
+                <% end %>
+                <div class="divider"></div>
+                <%= link_to user_movement_new_move_path(current_user.id),class:'shared-header-li' do %>
+                  <%= image_tag("menu_icons/menuAddMovement.svg", class:'nav-icon') %> New Movement
+                <% end %>
+                <div class="divider"></div>
+                <%= link_to destroy_user_session_path, :method => :get,class:'shared-header-li menu-exit' do %>
+                  <%= image_tag("menu_icons/menuExit.svg", class:'nav-icon menu-exit') %> Log Out
+                <% end %>
+              </div>
+            </div>
+            <%= link_to :back do %>
+              <%= image_tag("menu_icons/back.svg",class:'back') %>
+            <% end %>
+          </ul>
+        <% else  %>
+          <ul class="shared-header-ul">
+            <li class="shared-header-li"> <%= link_to "Sign in", new_user_session_path, class: "btn" %>  </li>
+            <li class="shared-header-li"> <%= link_to "Sign up", new_user_registration_path, class: "btn" %> </li>
+          </ul>
+        </nav>
+      <% end %>
+    </div>
+    <div class="alerts">
+      <% if notice.present? %>
+        <p class="alerts-text"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="alerts-text"><%= alert %></p>
+      <% end %>
+    </div>
+    <%# Navigation menu logic %>
+    <script>
+      document.querySelector('.menu-btn-cont').addEventListener('click', (e) => {
+      document.querySelector('.shared-header-menu').classList.toggle('active');
+      document.querySelector('.menu-btn-cont').classList.toggle('btn-on');
+      document.querySelector('.menu')
+      document.querySelector('.menu-btn').classList.toggle('menu-btn-on');
+      });
+    </script>

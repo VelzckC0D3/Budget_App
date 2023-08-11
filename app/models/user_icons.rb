@@ -1,5 +1,5 @@
 module UserIcons
-  ICONS = [
+  USERICONS = [
     'avatar1.svg',
     'avatar2.svg',
     'avatar3.svg',
@@ -28,5 +28,33 @@ module UserIcons
     'avatar26.svg',
     'avatar27.svg',
     'avatar28.svg'
+  ].freeze
+
+  GROUPICONS = [
+    'icon1.svg',
+    'icon2.svg',
+    'icon3.svg',
+    'icon4.svg',
+    'icon5.svg',
+    'icon6.svg',
+    'icon7.svg',
+    'icon8.svg',
+    'icon9.svg',
+    'icon10.svg',
+    'icon11.svg',
+    'icon12.svg',
+    'icon13.svg',
+    'icon14.svg',
+    'icon15.svg',
+    'icon16.svg',
+    'icon17.svg',
+    'icon18.svg',
+    'icon19.svg',
+    'icon20.svg',
+    'icon21.svg',
+    'icon22.svg',
+    'icon23.svg',
+    'icon24.svg',
+    'icon25.svg'
   ].freeze
 end

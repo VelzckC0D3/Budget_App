@@ -1,24 +1,47 @@
-<h1> Movement new test </h1>
+<style>
+  .shared-header-cont{display:none;}
+  .wrapper {padding: 0}
+  .shared-back {transform: translateY(0px) !important;}
+  @media (max-width: 625px) {
+    .data-form-cont{ flex-direction: column-reverse; }
+  }
+  .shared-back {
+  background-color: #e47921;
+  color: white;
+  padding: 0.2rem 0.5rem 0.2rem;
+  border-radius: 5px;
+  transform: translateY(0.5rem);
+  transition: all 0.15s ease-in-out;
+  text-transform: capitalize;
+  border: 1px solid black;
+}
+.shared-back:hover {
+  background-color: #ff953e;
+  transform: scale(1.05) translateY(0.5rem);
+}
+</style>
+<div class="data-form-cont">
+  <div class="form-image", style="background-image: url('<%= asset_path 'addMov.svg' %>');"></div>
+  <%= form_with(model: @movement, url: user_group_movement_index_path(user_id: current_user.id, group_id: @group), local: true, data:{turbo: false}, method: :post, class:'data-form') do |form| %>
+    <h1 class="form-title">add new movement</h1>
+    <!-- Form fields here -->
 
-<%= form_with(model: @movement, url: user_group_movement_index_path(user_id: current_user.id, group_id: @group), local: true, data:{turbo: false}, method: :post) do |form| %>
-  <!-- Form fields here -->
-  <%= form.text_field :name %>
-  <%= form.number_field :amount %>
+    <div class="form-inputs">
+    <%= form.text_field :name, placeholder: 'Transtaction Name', class: 'form-input', required: true %>
+    <%= form.number_field :amount, placeholder: 'Amount', class: 'form-input', required: true %>
+</div>
 
-    <% puts '000000000000' %>
-  <% puts current_user.name %>
-    <% puts '000000000000' %>
-
-<% if @movement.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@movement.errors.count, "error") %> prohibited this movement from being saved:</h2>
-    <ul>
+    <% if @movement.errors.any? %>
       <% @movement.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-  
-  <%= form.submit %>
-<% end %>
+        <div class="error-messages"> 
+          <p class="error-text"><%= msg %></p>
+        <% end %>
+      </div>
+    <% end %>
+    <%= form.submit class:'form-submit' %>
+        <div class="form-buttons">
+<%= link_to "go back", user_group_path(current_user.id, @group), data:{turbo:false}, class:'shared-back' %>
+    </div>
+  <% end %>
+   
+</div>

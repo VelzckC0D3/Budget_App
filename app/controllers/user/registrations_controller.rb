@@ -4,13 +4,13 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    @icons = UserIcons::ICONS
+    @icons = UserIcons::USERICONS
     super
   end
 
   # POST /resource
   def create
-    @icons = UserIcons::ICONS
+    @icons = UserIcons::USERICONS
     super
   end
 

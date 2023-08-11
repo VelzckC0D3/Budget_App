@@ -7,7 +7,7 @@
   }
 </style>
 <div class="form-cont">
-  <div class="new-user", style="background-image: url('<%= asset_path 'editPass.svg' %>');"></div>
+  <div class="form-image", style="background-image: url('<%= asset_path 'editPass.svg' %>');"></div>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
     <h1 class="form-title">Change your password</h1>
     <%= f.hidden_field :reset_password_token %>

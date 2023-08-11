@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :user do 
     resources :movement, only: [:new, :create]
     get '/movement/new_move' => 'movement#new_mov'
-    resources :group, only: [:index, :new, :create, :show] do
-      resources :movement, only: [:index, :new, :create, :show]
+    resources :group, only: [:index, :new, :create, :show, :destroy] do
+      resources :movement, only: [:index, :new, :create, :show, :destroy]
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
