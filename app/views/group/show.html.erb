@@ -15,7 +15,7 @@
         <div class="group-info">
           <div class="movement-info">
             <h3> <%= m.name %> </h3>
-            <p> <%= m.created_at.strftime("%B %d, %Y %I:%M %p") %> </p>      
+            <p class="movement-date"> <%= m.created_at.strftime("%B %d, %Y %I:%M %p") %> </p>      
         </div>
         <div class="movement-info">
           <p> amount: $<%= number_with_delimiter(m.amount.to_i, delimiter: '.') %> </p>

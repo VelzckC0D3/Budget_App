@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "GroupIndices", type: :system do
+RSpec.describe "GroupIndex", type: :system do
   before(:each) do
     driven_by(:rack_test)
     @user = User.create!(role: 'user', profile_picture: 'avatar1.svg', name: 'John', email: 'testing@ruby.com', password: 'password', confirmed_at: Time.now)
