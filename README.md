@@ -163,9 +163,7 @@ This project is already fully deployed and ready to use, but if you want to depl
 
 ## 🤝 Contributing <a name="contributing"></a>
 
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](../../issues/).
+- Special gratitude to the artist who provided the creative concepts for this project: [Gregorie Vella](https://www.behance.net/gregoirevella)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
