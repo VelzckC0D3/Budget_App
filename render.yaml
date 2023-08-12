@@ -1,10 +1,12 @@
 databases:
   - name: postgres
-    ipAllowList: []
     plan: free
+    ipAllowList: []
+
 services:
   - type: web
     name: rails
+    plan: free
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: bundle exec rails s
@@ -15,7 +17,6 @@ services:
         fromDatabase:
           name: postgres
           property: connectionString
-          plan: free
   - type: redis
     name: redis
     ipAllowList: []
