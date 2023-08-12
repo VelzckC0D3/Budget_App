@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Group, type: :model do
   before(:each) do
     @user = User.create!(role: 'user', profile_picture: 'picture.png', name: 'John', email: 'testing@ruby.com',
-                         password: 'password', confirmed_at: Time.now)
+                         password: 'password')
     @group = Group.create!(name: 'Test Group', icon: 'icon.svg', user_id: @user.id)
   end
 

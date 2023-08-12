@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Movement, type: :model do
   before(:each) do
     @user = User.create!(role: 'user', profile_picture: 'picture.png', name: 'John', email: 'testing@ruby.com',
-                         password: 'password', confirmed_at: Time.now)
+                         password: 'password')
     @group1 = Group.create!(name: 'Test Group', icon: 'icon.svg', user_id: @user.id)
     @group2 = Group.create!(name: 'Test Group', icon: 'icon.svg', user_id: @user.id)
     @movement1 = Movement.create!(name: 'Test Movement', group_id: @group1.id, user_id: @user.id, amount: 500)

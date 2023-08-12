@@ -32,9 +32,7 @@
 
 .group-index-cont {
   width: 100%;
-  /* stylelint-disable */
-  height: 90dvh;
-  /* stylelint-enable */
+  height: 100%;
   display: flex;
   overflow: hidden;
   flex-direction: column;
