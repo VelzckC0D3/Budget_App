@@ -23,12 +23,12 @@
                   <%= image_tag("menu_icons/menuAddMovement.svg", class:'nav-icon') %> New Movement
                 <% end %>
                 <div class="divider"></div>
-                <%= link_to destroy_user_session_path, :method => :get,class:'shared-header-li menu-exit' do %>
-                  <%= image_tag("menu_icons/menuExit.svg", class:'nav-icon menu-exit') %> Log Out
-                <% end %>
-                <div class="divider"></div>
                 <%= link_to '/', :method => :get,class:'shared-header-li menu-exit' do %>
                   <%= image_tag("menu_icons/menuHome.svg", class:'nav-icon menu-exit') %> Home / Index
+                <% end %>
+                <div class="divider"></div>
+                <%= link_to destroy_user_session_path, :method => :get,class:'shared-header-li menu-exit' do %>
+                  <%= image_tag("menu_icons/menuExit.svg", class:'nav-icon menu-exit') %> Log Out
                 <% end %>
               </div>
             </div>
@@ -62,7 +62,7 @@
       });
       document.querySelector('.menu-close').addEventListener('click', (e) => {
       document.querySelector('.shared-header-menu').classList.toggle('active');
-    
+
       document.querySelector('.menu-btn-cont').classList.toggle('btn-on');
       document.querySelector('.menu')
       document.querySelector('.menu-btn').classList.toggle('menu-btn-on');
