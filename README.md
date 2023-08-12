@@ -28,6 +28,7 @@
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 Wise Wallet `[Ruby on Rails, Javascript]` <a name="about-project"></a>
+![WiseWallet](https://github.com/VelzckC0D3/Budget_App/assets/92229666/5773c4b8-2fbd-488f-8d19-9f86684e336d)
 
 Introducing `Wise Wallet` a comprehensive budgeting app that puts you in full control of your finances across customizable categories. This capstone project showcases a meticulously designed, fully responsive UI, allowing users to effortlessly manage accounts, groups, and transactions. Rigorously tested with Rspec & Capybara, ensures reliability and offers a seamless financial management experience on any device. Unveil the future of budgeting as you take charge of your financial journey with.
 
@@ -53,17 +54,17 @@ Introducing `Wise Wallet` a comprehensive budgeting app that puts you in full co
 
 ### Key Features <a name="key-features"></a>
 
-- **[User database (`Devise Gem`)]** Any user can create and manage its own account with the possibility to pick one of the selected profile pictures, it's also allowed to update this information anytime the user wants.
+- **[User database `Devise Gem`]** Any user can create and manage their own account with the possibility to pick one of the selected profile pictures, it's also allowed to update this information anytime the user wants.
 
-- **[Group database (`Postgre SQL Crud`)]** Any user can create and manage its own groups, it's also allowed to update this information anytime the user wants.
+- **[Group database `Postgre SQL Crud`]** Any user can create and manage their own groups, it's also allowed to update this information anytime the user wants.
 
-- **[Transaction database (`Postgre SQL Crud`)]** Any user can create and manage its own transactions, it's also allowed to update this information anytime the user wants.
+- **[Transaction database `Postgre SQL Crud`]** Any user can create and manage their own transactions, it's also allowed to update this information anytime the user wants.
 
-- **[Polished User Interface & Experience (`CSS & JavaScript DOM`)]** The app is fully responsive and has a polished UI that allows users to easily manage their accounts, groups, and transactions.
+- **[Polished User Interface & Experience `CSS & JavaScript DOM`]** The app is fully responsive and has a polished UI that allows users to easily manage their accounts, groups, and transactions.
 
-- **[Authentication (`CanCanCan Gem`)]** Users can sign up, sign in, and sign out of the app. Users can also reset their passwords with a reset password email.
+- **[Authentication `CanCanCan Gem`]** Users can sign up, sign in, and sign out of the app. Users can also reset their passwords with a reset password email.
 
-- **[Fully Tested (`Rspec & Capybara`)]** The app is fully tested with Rspec & Capybara, ensuring reliability and a seamless financial management experience on any device.
+- **[Fully Tested `Rspec & Capybara`]** The app is fully tested with Rspec & Capybara, ensuring reliability and a seamless financial management experience on any device.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -71,7 +72,8 @@ Introducing `Wise Wallet` a comprehensive budgeting app that puts you in full co
 
 ## 🚀 Live Demo & preview <a name="live-demo"></a>
 
-![Wise Wallet Preview](https://PREVIEWGIFLINK.COM)
+
+https://github.com/VelzckC0D3/Budget_App/assets/92229666/e7ecc547-00bc-4d1a-9f25-f7dd07ba93f3
 
 - _You can visit the live demo [here](https://rails-eb2s.onrender.com/)_
 
