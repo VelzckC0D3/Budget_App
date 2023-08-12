@@ -163,7 +163,10 @@ This project is already fully deployed and ready to use, but if you want to depl
 
 ## 🤝 Contributing <a name="contributing"></a>
 
-- Special gratitude to the artist who provided the creative concepts for this project: [Gregorie Vella](https://www.behance.net/gregoirevella)
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -179,7 +182,7 @@ If you like this project, be pending on my profile since I'll be doing much more
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thanks my Microverse Team and partners for helping me to get this done.
+- Special gratitude to the artist who provided the creative concepts for this project: [Gregorie Vella](https://www.behance.net/gregoirevella)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
