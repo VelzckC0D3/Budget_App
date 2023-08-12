@@ -1,0 +1,45 @@
+<% stylesheet_link_tag 'group-show' %>
+<style>
+  .wrapper {padding: 0}
+  .group-cont {padding: 3rem 1rem}
+  .group-index-cont {justify-content: flex-start; border-radius: 0; padding: 2rem 0.7rem 1rem !important; gap: 0.25rem;}
+  .group-index-title {font-size: 2.5rem; transform: translateY(1rem)}
+</style>
+<div class="group-index-cont">
+  <%= image_tag("group_icons/#{@group.icon}", class:"group-image", alt:"group image" )%>
+  <h1 class="movement-title"> <%= @group.name %> Movements </h1>
+  <h3 class="movement-sub">Total: $<%= number_with_delimiter(@group.movements.sum(:amount), delimiter: '.', separator: ',') %></h3>
+    <div class="movement-cont">
+  <% if @group.movements.any? %>
+      <% @group.movements.map do |m| %>
+        <div class="group-info">
+          <div class="movement-info">
+            <h3> <%= m.name %> </h3>
+            <p class="movement-date"> <%= m.created_at.strftime("%B %d, %Y %I:%M %p") %> </p>      
+        </div>
+        <div class="movement-info">
+          <p> amount: $<%= number_with_delimiter(m.amount.to_i, delimiter: '.') %> </p>
+          <%= button_to 'Delete transaction', user_group_movement_path(current_user.id, @group.id, m.id), class:'movement-delete', method: :delete, data: { turbo_confirm: 'Are you sure?' }%>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to 'New Movement', new_user_group_movement_path(current_user.id, @group.id), class:'movement-btn' %>
+
+<style> 
+.shared-back {transform: translateY(-0.4rem)} 
+.shared-back:hover {transform: translateY(-0.4rem)}
+.movement-btn {transform: translateY(-1rem)}
+.movement-sub {margin-bottom: 2rem}
+@media (max-width: 500px) {
+.group-index-cont { padding: 1rem 0  0!important; }
+.movement-btn { border-radius: 0;  transform: translateY(0.3rem); }
+.movement-btn:hover { border-radius: 0;  transform: translateY(0.3rem); }
+.shared-back {width: 100vw; text-align: center; height: 3rem; transform: translateY(0rem); padding: 1rem}
+.shared-back:hover {width: 100vw; text-align: center; height: 3rem; transform: translateY(0rem); padding: 1rem}
+.movement-cont {transform: translateY(0rem)}
+}
+</style>
+</div>

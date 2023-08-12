@@ -1,0 +1,348 @@
+@keyframes fadeInTop {
+  0% {
+    transform: translateY(-100%) scaleY(2);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInBG {
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.group-index-cont {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  border-radius: 15px;
+  box-shadow: 1px 20px 20px 1px rgba(0, 0, 0, 0.2), inset 0 0 20px 8px rgba(0, 0, 0, 0.2);
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: fadeIn 0.7s ease-in-out forwards;
+  transition: all 0.15s ease-in-out;
+}
+
+.group-index-cont::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  max-width: 29rem;
+  border-radius: 15px;
+  height: 98%;
+  transform: scaleY(0);
+  transform-origin: top;
+  background-repeat: no-repeat;
+  animation: fadeInBG 0.7s ease-in-out 0.2s forwards;
+  pointer-events: none;
+}
+
+.group-index-header {
+  width: 100%;
+}
+
+.group-index-title {
+  font-family: "Borel", cursive;
+  color: black;
+  font-size: 3rem;
+  opacity: 0;
+  animation: fadeIn 0.7s ease-in-out 0.3s forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: -1rem;
+}
+
+.group-tags {
+  display: flex;
+  width: 100%;
+  padding: 0 1rem;
+  max-width: 40rem;
+  justify-content: center;
+  transform: translateY(-1.5rem);
+  opacity: 0;
+  animation: fadeIn 0.7s ease-in-out 0.4s forwards;
+}
+
+.group-tag-name {
+  color: black;
+  font-weight: 400;
+  padding: 0 0.25rem;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+.group-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  width: 100%;
+  max-width: 40rem;
+  overflow-y: auto;
+  padding: 0.5rem;
+  transform: translateY(-1rem);
+  border-radius: 15px;
+  animation: fadeIn 0.7s ease-in-out 0.5s forwards;
+  opacity: 0;
+}
+
+.group-info {
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.4rem;
+  gap: 0.5rem;
+  color: black;
+  border-bottom: 2px solid var(--main-color);
+  box-shadow: 1px 20px 20px -17px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95);
+  transition: all 0.15s ease-in-out;
+  background-color: white;
+}
+
+.group-info:hover {
+  transform: scale(1);
+}
+
+.group-link {
+  display: flex;
+  gap: 1rem;
+  width: 65%;
+  color: grey;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.group-image {
+  border-radius: 15px;
+  height: 5rem;
+  background-color: #f80;
+  box-shadow: 1px 4px 7px 0 rgb(0 0 0 / 26%);
+}
+
+.group-data {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 70%;
+}
+
+.group-name {
+  color: var(--main-color);
+}
+
+.group-create {
+  color: grey;
+}
+
+.group-delete {
+  border: none;
+  outline: none;
+  color: red;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.group-delete::before {
+  content: '';
+  width: 5rem;
+  height: 1px;
+  background-color: red;
+  position: absolute;
+  transform: translateY(1.1rem) translateX(-1px) scaleX(0);
+  transform-origin: center;
+  transition: all 0.15s ease-in-out;
+}
+
+.group-delete:hover::before,
+.group-delete:active::before {
+  transform: translateY(1.1rem) translateX(-1px) scaleX(1);
+}
+
+.group-total {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  width: 35%;
+  height: 100%;
+  flex-direction: column;
+  z-index: 3;
+}
+
+.group-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 40rem;
+}
+
+.group-btn {
+  color: white;
+  border: 1px solid black;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  border-radius: 15px;
+  opacity: 0;
+}
+
+.group-btn:nth-child(1) {
+  background-color: var(--main-color);
+  animation: fadeIn 0.7s ease-in-out 0.6s forwards;
+}
+
+.group-btn:nth-child(2) {
+  background-color: var(--secondary-color);
+  animation: fadeIn 0.7s ease-in-out 0.7s forwards;
+}
+
+.group-index-sub {
+  transform: translateY(-2rem);
+  animation: fadeIn 0.7s ease-in-out 0.6s forwards;
+  opacity: 0;
+  font-weight: 400;
+  color: rgb(128, 128, 128);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.group-index-actions {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transform: translateY(-3rem);
+}
+
+.btn-cont {
+  width: 13rem;
+  height: 3rem;
+  transition: all 0.15s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-cont:nth-child(1) {
+  opacity: 0;
+  animation: 1s fadeIn ease-in-out 0.7s forwards;
+}
+
+.btn-cont:nth-child(2) {
+  opacity: 0;
+  animation: 1s fadeIn ease-in-out 0.8s forwards;
+}
+
+.group-index-button {
+  border-radius: 25px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.15s ease-in-out;
+  width: 10rem;
+}
+
+.btn1 {
+  background-color: var(--secondary-color);
+}
+
+.btn2 {
+  background-color: var(--main-color);
+}
+
+.btn1:hover {
+  background-color: var(--secondary-color-hover);
+  transform: scale(1.1);
+  box-shadow: 1px 8px 12px 0 rgba(0, 0, 0, 0.5);
+}
+
+.btn2:hover {
+  background-color: var(--main-color-hover);
+  transform: scale(1.1);
+  box-shadow: 1px 8px 12px 0 rgba(0, 0, 0, 0.5);
+}
+
+.group-index-button:active {
+  filter: brightness(1.2);
+  transform: scale(1.03);
+  transition: transform 0.1s ease-in-out;
+}
+
+.group-index-social {
+  transform: translateY(-1.5rem);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeIn 0.7s ease-in-out 0.9s forwards;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.index-icon {
+  width: 2rem;
+  height: 2rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.index-icon:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+@media (max-width: 560px) {
+  .group-index-cont {
+    padding: 0 1rem !important;
+    border-radius: 0;
+  }
+
+  .group-index-cont::before {
+    top: 0;
+    border-radius: 0;
+  }
+}

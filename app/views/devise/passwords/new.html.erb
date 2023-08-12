@@ -1,0 +1,28 @@
+<style>
+  .shared-header-cont{display:none;}
+    @media (max-width: 900px) {
+    .form-cont{
+      flex-direction: column-reverse;
+    }
+  }
+</style>
+<div class="form-cont">
+  <div class="form-image", style="background-image: url('<%= asset_path 'forgotPass.svg' %>');"></div>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <div class="error-messages">
+      <%= render "devise/shared/error_messages", resource: resource%>
+    </div>
+    <h1 class="form-title">Forgot your password?</h1>
+
+<div class="form-inputs">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Address", class:"form-input" %>
+</div>
+    
+    <%= f.submit "Send me reset password instructions", class:"form-submit" %>
+
+<div class="form-buttons">
+    <%= render "/shared/buttons" %>
+</div>
+
+  <% end %>
+</div>

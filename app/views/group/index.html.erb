@@ -1,0 +1,107 @@
+<% stylesheet_link_tag 'group-index' %>
+<div class="group-index-cont">
+  <% if user_signed_in? %>
+    <div class="group-index-header">
+      <h1 class="group-index-title">WiseWallet</h1>
+    </div>
+    <style>
+      .wrapper {padding: 0}
+      .group-index-cont {justify-content: flex-start; border-radius: 0; padding: 0.7rem; gap: 1rem;}
+      .group-index-title {font-size: 2.5rem; transform: translateY(1rem)}
+      @media (max-width: 500px) {
+        .group-cont {box-shadow: none; width: 100dvw; height: 120%; border:none; border-radius: 0;}
+        .group-actions { width: 100vw; justify-content: center; gap: 0;}
+        .group-btn {width: 100vw; margin: 0; border-radius: 0;}
+        .group-index-cont{gap:0;}
+        .shared-back {margin-bottom: 1rem;}
+
+      }
+    </style>
+    <div class="group-tags">
+      <h3 class="group-tag-name">Groups information</h3>
+    </div>
+    <div class="group-cont">
+      <style>
+        .group-index-cont{
+        background-image: url('<%= asset_path 'index-bg.svg' %>');
+        background-position-Y: -2rem;
+        background-position-x: -6rem;
+        background-size: 131vw 31rem;
+        }
+        @media (max-width: 1024px) {
+
+        .group-index-cont {
+        background-size: 94rem 33rem;
+        background-position-x: -31rem;
+        }
+
+        }
+      </style>
+      <% if @groups.any? %>
+        <% @groups.each do |g| %>
+          <div class="group-info">
+            <%= link_to  user_group_path(current_user.id, g.id), class:'group-link' do %>
+              <%= image_tag("group_icons/#{g.icon}", class:"group-image", alt:"group image" )%>
+              <div class="group-data">
+                <h3 class="group-name"> <%= g.name %> </h3>
+                <p class="group-created"> <%= g.created_at.strftime("%B %d, %Y") %></p>
+              </div>
+            <% end %>
+            <div class="group-total">
+              <p class="group-movement-total">
+                Total: $<%= number_with_delimiter(g.movements.sum(:amount), delimiter: '.', separator: ',') %>
+              </p>
+              <%= button_to 'Delete Group', user_group_path(current_user.id, g.id), method: :delete, data: {turbo_confirm: 'Delete group and its movements?'}, class:'group-delete' %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <style>
+          .group-empty-cont {display: flex; flex-direction: column; justify-content: center; align-items: center; transform: translateY(-5rem); gap: 1rem;}
+          .group-empty {color: grey; text-align: center;}
+          .group-empty-link {margin:0.5rem;}
+          .group-empty-link a {color: white; padding: 0.5rem 1rem; background-color: #f80; border-radius: 8px; font-weight: bold;}
+          .group-cont {justify-content: center;}
+        </style>
+        <div class="group-empty-cont">
+        <h2 class="group-empty">You don't have any group yet</h2>
+        <p class="group-empty-link"><%= link_to "Add the first one", new_user_group_path(current_user.id), data:{turbo: false}%></p>
+        </div>
+      <% end %>
+    </div>
+  
+    <% if @groups.any? %>
+      <div class="group-actions">
+        <%= link_to "New Group", new_user_group_path(current_user.id), data:{turbo: false}, class: "group-btn" %>
+        <%= link_to "New Movement", user_movement_new_move_path(current_user.id), data:{turbo: false}, class: "group-btn" %>
+      </div>
+    <% end %>
+  <% else %>
+    <h1 class="group-index-title"> WiseWallet </h1>
+    <style>
+    .shared-back {  }
+      .shared-header-cont{display: none;}
+      .group-index-cont{max-width: 30rem}
+      .group-index-cont::before{background-image: url('<%= asset_path 'waves.svg' %>');}
+    </style>
+    <h3 class="group-index-sub"> Control your financial management </br> With intelligent spending insights </h3>
+  <div class="group-index-actions">
+    <div class="btn-cont"><%= link_to "Register", new_user_registration_path, class: "group-index-button btn1" %></div>
+    <div class="btn-cont"><%= link_to "Log In", new_user_session_path, class: "group-index-button btn2" %></div>
+  </div>
+  <div class="group-index-social">
+    <h4> Find us: </h4>
+    <div class="social-icons" >
+      <a href="https://github.com/VelzckC0D3" target="_blank" rel="noopener noreferrer">
+        <img src="<%= asset_path 'facebook-icon.svg' %>" alt="User Icon" class="index-icon">
+      </a>
+      <a href="https://github.com/VelzckC0D3" target="_blank" rel="noopener noreferrer">
+        <img src="<%= asset_path 'instagram-icon.svg' %>" alt="User Icon" class="index-icon">
+      </a>
+      <a href="https://github.com/VelzckC0D3" target="_blank" rel="noopener noreferrer">
+        <img src="<%= asset_path 'twitter-icon.svg' %>" alt="User Icon" class="index-icon">
+      </a>
+    </div>
+  </div>
+<% end %>
+</div>

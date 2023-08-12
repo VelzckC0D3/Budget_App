@@ -1,0 +1,42 @@
+<style>
+  .shared-header-cont{display:none;}
+  .wrapper { padding: 0 }
+  .error-messages{
+    background-color: transparent;
+  }
+  .shared-back {transform: translateY(0px) !important;}
+  .error-text{
+    background-color: #0000008a;
+    color: white;
+    padding: 0.25rem;
+    border-radius: 6px;}
+</style>
+<div class="data-form-cont">
+  <%= form_with(model: @group, url: user_group_index_path(current_user), local: true, data:{turbo: false}, class:'data-form') do |form| %>
+    <h1 class="form-title">add new group</h1>
+    <h4 class="form-pictures-label"> Pick an Image (scroll down for more options) </h4>
+    <div class="pictures-wrapper">
+      <% @icons.map do |i| %>
+        <div class="pictures-cont">
+          <%= form.radio_button :icon, i, class:'picture-checkbox', required: true %>
+          <%= image_tag "group_icons/#{i}", class:'profile-picture' %>
+        </div>
+      <% end %>
+    </div>
+    <div class="form-inputs">
+      <%= form.text_field :name, placeholder: 'Group Name', class: 'form-input' %>
+    </div>
+    <% if @group.errors.any? %>
+      <% @group.errors.full_messages.each do |msg| %>
+        <div class="error-messages">
+          <p class="error-text"><%= msg %></p>
+        <% end %>
+      </div>
+    <% end %>
+    <%= form.submit "Create Group", class:'form-submit' %>
+    <div class="form-buttons">
+      <%= render "/shared/buttons" %>
+    </div>
+  <% end %>
+  <div class="form-image", style="background-image: url('<%= asset_path 'addGroup.svg' %>');"></div>
+</div>
