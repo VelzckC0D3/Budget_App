@@ -6,7 +6,7 @@
           <p>
             <div class="shared-header-wrapper">
               <div class="shared-header-menu">
-                <p class="closeTest">X</p>
+                <p class="menu-close">X</p>
                 <div class="menu-profile">
                   <%= image_tag("user_icons/#{current_user.profile_picture}",class:'menu-img') %>
                   <%= current_user.name %>
@@ -32,7 +32,7 @@
                 <% end %>
               </div>
             </div>
-            <%= link_to :back do %>
+            <%= link_to '/' do %>
               <%= image_tag("menu_icons/menuBack.svg",class:'back') %>
             <% end %>
           </ul>
@@ -60,7 +60,7 @@
       document.querySelector('.menu')
       document.querySelector('.menu-btn').classList.toggle('menu-btn-on');
       });
-      document.querySelector('.closeTest').addEventListener('click', (e) => {
+      document.querySelector('.menu-close').addEventListener('click', (e) => {
       document.querySelector('.shared-header-menu').classList.toggle('active');
     
       document.querySelector('.menu-btn-cont').classList.toggle('btn-on');
